@@ -38,10 +38,10 @@
       </div>
     <div class="col">
       <% if(currentUser) { %>
-      <h2>Leave a comment</h2>
+      <h2 class="text-primary">Leave a comment</h2>
       <form action="/posts/<%=post._id%>/comments" method="POST" class="validated-form" novalidate>
         <div>
-          <lable class="form-label" for="rating">Rating</lable>
+          <lable class="form-label text-primary" for="rating">Rating</lable>
           <input type="range" class="form-range" min="1" max="5" name="comment[rating]" id="rating">
         </div>
         <div class="mb-3">
@@ -56,7 +56,7 @@
       <div class="card mb-3 mt-3">
         <div class="card-body">
           <h5 class="card-title"><%= comment.rating %></h5>
-          <h6 class="card-title">@ <%= comment.author.username %></h6>
+          <h6 class="card-title">@<%= comment.author.username %></h6>
           <p class="card-text"><%= comment.body %></p>
           <%  if( currentUser && comment.author.equals(currentUser._id))  {%>
             <form action="/posts/<%=post._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
