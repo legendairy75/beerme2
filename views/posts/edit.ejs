@@ -4,14 +4,14 @@
       <form action="/posts/<%=post._id%>?_method=PUT" method='POST' enctype="multipart/form-data">
         <div class="mb-3">
         <lable class="form-lable" for="title">Title</lable>
-        <input class="form-control" type="text" id="title" name="post[title]" value="<%=post.title %>"required>
+        <input class="form-control rounded-pill" type="text" id="title" name="post[title]" value="<%=post.title %>"required>
         <div class="valid-feedback">
             looks good!
           </div>
       </div>
       <div class="mb-3">
         <lable class="form-lable" for="desc">Description</lable>
-        <input class="form-control" type="text" id="desc" name="post[description]" value="<%=post.description %>"required>
+        <input class="form-control rounded-pill" type="text" id="desc" name="post[description]" value="<%=post.description %>"required>
         <div class="valid-feedback">
             looks good!
           </div>
@@ -33,11 +33,11 @@
             looks good!
           </div>
       </div>
-      <button class="btn btn-success">Submit</button>
+      <button class="btn btn-success rounded-pill">Submit</button>
       </form>
       <div class="col mt-3">
-       <a class="btn btn-primary" href="/posts">Index</a>
-       <a class="btn btn-secondary" href="/posts/<%=post._id%>">Back</a>
+       <a class="btn btn-primary rounded-pill" href="/posts">Index</a>
+       <a class="btn btn-secondary rounded-pill" href="/posts/<%=post._id%>">Back</a>
       </div>
 
     </div>

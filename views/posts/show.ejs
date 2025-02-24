@@ -1,4 +1,5 @@
 <% layout('layouts/boilerplate') %>
+<% block('head').append('<link type="text/css" rel="stylesheet" href="/styles/starability.css">') %>
 
 <div class="row mt-3">
    <div class="col-md mb-3">
@@ -21,12 +22,12 @@
 
 
         <% if( currentUser && post.author.equals(currentUser._id) ) { %>
-        <a class="card-link btn btn-secondary" href="/posts/<%=post._id%>/edit">Edit</a>
+        <a class="card-link btn btn-secondary rounded-pill" href="/posts/<%=post._id%>/edit">Edit</a>
 
         <div class="col mt-3">
 
           <form class="d-inline" action="/posts/<%=post._id%>?_method=DELETE" method="POST">
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-danger rounded-pill">Delete</button>
           </form>
         </div>
         <% } %>
@@ -34,33 +35,47 @@
       </div>
     </div>
     <div class="mt-3 mb-3">    
-        <a class="card-link btn btn-primary" href="/posts">Back</a>
+        <a class="card-link btn btn-primary rounded-pill" href="/posts">Back</a>
       </div>
     <div class="col">
       <% if(currentUser) { %>
       <h2 class="text-primary">Leave a comment</h2>
       <form action="/posts/<%=post._id%>/comments" method="POST" class="validated-form" novalidate>
         <div>
-          <lable class="form-label text-primary" for="rating">Rating</lable>
-          <input type="range" class="form-range" min="1" max="5" name="comment[rating]" id="rating">
+          <fieldset class="starability-heartbeat">
+            <legend class="form-label text-primary">Rating:</legend>
+            <input type="radio" id="no-rate" class="input-no-rate" name="comment[rating]" value="1" checked aria-label="No rating." />
+            <input type="radio" id="first-rate1" name="comment[rating]" value="1" />
+            <label for="first-rate1" title="Terrible">1 star</label>
+            <input type="radio" id="first-rate2" name="comment[rating]" value="2" />
+            <label for="first-rate2" title="Not good">2 stars</label>
+            <input type="radio" id="first-rate3" name="comment[rating]" value="3" />
+            <label for="first-rate3" title="Average">3 stars</label>
+            <input type="radio" id="first-rate4" name="comment[rating]" value="4" />
+            <label for="first-rate4" title="Very good">4 stars</label>
+            <input type="radio" id="first-rate5" name="comment[rating]" value="5" />
+            <label for="first-rate5" title="Amazing">5 stars</label>
+          </fieldset>
+
         </div>
         <div class="mb-3">
           <lable class="form-label" for="body"></lable>
           <textarea name="comment[body]" id="body" class="form-control" required></textarea>
         </div>
-        <button class="btn btn-primary">submit</button>
+        <button class="btn btn-primary rounded-pill">submit</button>
       </form>
       <% } %>
 
       <% for(let comment of post.comments) { %>
       <div class="card mb-3 mt-3">
         <div class="card-body">
-          <h5 class="card-title"><%= comment.rating %></h5>
+
           <h6 class="card-title">@<%= comment.author.username %></h6>
           <p class="card-text"><%= comment.body %></p>
+          <p class="card-text starability-result" data-rating="<%= comment.rating %>"></p>
           <%  if( currentUser && comment.author.equals(currentUser._id))  {%>
             <form action="/posts/<%=post._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
-              <button class="btn btn-danger">Delete</button>
+              <button class="btn btn-danger rounded-pill">Delete</button>
             </form>
           <% } %>
         </div>
