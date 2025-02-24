@@ -1,7 +1,3 @@
-// if (process.env.NODE_ENV !== "production") {
-//   require('dotenv').config();
-// }
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -24,6 +20,12 @@ const postRoute = require('./routes/posts');
 const commentRoute = require('./routes/comments');
 
 var app = express();
+
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+  const logger = require('morgan');
+  app.use(logger('dev'));
+}
 
 // mongoose
 
