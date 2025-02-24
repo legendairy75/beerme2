@@ -1,0 +1,12 @@
+@import "../node_modules/@catppuccin/palette/scss/_mocha.scss";
+// @import"catppuccin";
+
+
+$primary: $teal;
+$secondary: $mauve;
+$danger: $red;
+$success: $green;
+$black: $base;
+$white: $text;
+
+@import "../node_modules/bootstrap/scss/bootstrap";

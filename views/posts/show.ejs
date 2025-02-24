@@ -1,12 +1,12 @@
 <% layout('layouts/boilerplate') %>
 
 <div class="row mt-3">
-   <div class="col-6">
+   <div class="col-md mb-3">
    <% for(let img of post.image) {%>
     <img src="<%=img.url %>" class="card-img img-thumbnail" alt="...">
     <% } %>
     </div>
-  <div class="col-6">
+  <div class="col-md">
     <div class="card mb-3">
       <div class="card-body text-center">
         <h2 class="card-title"><%= post.title %></h1>
