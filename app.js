@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+}
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -22,7 +25,7 @@ const commentRoute = require('./routes/comments');
 var app = express();
 
 if (process.env.NODE_ENV !== "production") {
-  require('dotenv').config();
+  // require('dotenv').config();
   const logger = require('morgan');
   app.use(logger('dev'));
 }
@@ -157,7 +160,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('home', { welcome: 'Welcome to Beerme' })
 })
 
 // app.use('/', indexRouter);

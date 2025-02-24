@@ -10,6 +10,7 @@
     "stop": "node ./bin/www"
   },
   "dependencies": {
+    "@catppuccin/palette": "^1.7.1",
     "bootstrap": "^5.3.3",
     "cloudinary": "^2.5.1",
     "connect-flash": "^0.1.1",
