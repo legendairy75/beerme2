@@ -2,7 +2,7 @@ const Post = require('../models/post')
 
 module.exports.index = async (req, res) => {
   const posts = await Post.find({});
-  res.render('posts/index', { posts });
+  res.render('posts/index', { posts, title: 'posts' });
 };
 
 module.exports.createPost = async (req, res) => {
@@ -16,7 +16,7 @@ module.exports.createPost = async (req, res) => {
 };
 
 module.exports.renderNewForm = async (req, res) => {
-  res.render('posts/new')
+  res.render('posts/new', { title: 'New' })
 };
 
 module.exports.showPost = async (req, res) => {
@@ -31,7 +31,7 @@ module.exports.showPost = async (req, res) => {
     req.flash('error', 'post does not exist.')
     res.redirect('/posts')
   }
-  res.render('posts/show', { post });
+  res.render('posts/show', { post, title: `${post.title}` });
 };
 
 module.exports.updatePost = async (req, res) => {
@@ -57,5 +57,5 @@ module.exports.renderEditForm = async (req, res) => {
     req.flash('error', 'post does not exist.')
     res.redirect('/posts')
   }
-  res.render('posts/edit', { post })
+  res.render('posts/edit', { post, title: 'Edit' })
 };

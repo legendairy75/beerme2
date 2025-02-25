@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BeerMe</title>
+  <title><%= (typeof title != "undefined" ? title : "BeerMe") %></title>
   <!-- <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css"> -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" -->
   <!--   integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
@@ -14,7 +14,10 @@
   <!-- <link rel="stylesheet" href="stylesheets/styles.css"> -->
 
 </head>
+
+  <!-- <%- block('body').toString() %>> -->
 <body class="d-flex flex-column vh-100 bg-black">
+    <!-- <body class="<%# if (typeof class !== 'undefined') { %> <%- block('body').toString() %> <%# } else {d-flex flex-column vh-100 bg-black} %>"> -->
 
     <%- include('../partials/header') %>
   <main class="container-md">

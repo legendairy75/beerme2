@@ -1,4 +1,4 @@
-<nav class="navbar bg-primary navbar-expand-lg bg-body-primary" >
+<nav class="navbar bg-primary navbar-expand-lg bg-body-primary mb-auto" >
   <div class="container-fluid">
     <a class="navbar-brand" href="#">BeerMe</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,14 +16,15 @@
           <a class="nav-link" href="/posts/new">Creat New Post</a>
         </li>
       </ul>
+      <div class="navbar-nav ml-auto">
+        <% if (!currentUser) {%>
+        <a href="/login" class="nav-link">Login</a>
+        <a href="/register" class="nav-link">Register</a>
+        <% }else{ %>
+        <a href="/logout" class="nav-link">Logout</a>
+        <% } %>
+      </div>
     </div>
-    <div class="navbar-nav ml-auto">
-      <% if (!currentUser) {%>
-      <a href="/login" class="nav-link">Login</a>
-      <a href="/register" class="nav-link">Register</a>
-      <% }else{ %>
-      <a href="/logout" class="nav-link">Logout</a>
-      <% } %>
-    </div>
+    
   </div>
 </nav>
