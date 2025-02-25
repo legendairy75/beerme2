@@ -66,6 +66,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
+);
+
 
 // app.use(mongoSanitize({
 //   replaceWith: '_'
@@ -160,7 +164,15 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-  res.render('home', { welcome: 'Welcome to Beerme' })
+  res.render('home', { welcome: 'Welcome to Beerme', title: 'Home' })
+})
+
+app.get('/about', (req, res) => {
+  res.render('about');
+})
+
+app.get('/test', (req, res) => {
+  res.render('bootstrap')
 })
 
 // app.use('/', indexRouter);
