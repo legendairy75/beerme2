@@ -3,7 +3,7 @@
     <% for (let post of posts) { %>
     <div class="card text-center mb-3">
       <div class="row">
-        <div class="col-md">
+        <div class="col-md-4">
           <% if (post.image.length) { %>
             <img class="img-fluid rounded" alt="" src="<%= post.image[0].url %>">
           <% }else{ } %>
@@ -17,7 +17,8 @@
             <div class="d-grid gap-2 col-6 mx-auto">
               <a class="btn btn-primary btn-lg rounded-pill" href="/posts/<%=post._id%>">View</a>
             </div>
-          </div>
+            
+    </div>
         </div>
       </div>
     </div>
