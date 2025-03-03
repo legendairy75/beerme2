@@ -1,0 +1,14 @@
+<% layout('layouts/boilerplate') %>
+<% block('head').append('<link type="text/css" rel="stylesheet" href="/styles/home.css">') %>
+
+<div class="cover-container">
+  <div class="text-center mt-5 h-100">
+    <h1 class="card-title my-text mb-0 "><%= welcome %></h1>
+
+    <p>A website to descuss beer.</p>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <a href="/posts" class="btn btn-lg rounded-pill btn-primary my-link">View Posts!</a>
+    </div>
+  </div>
+</div>

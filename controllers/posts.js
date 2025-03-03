@@ -1,8 +1,11 @@
 const Post = require('../models/post')
 
 module.exports.index = async (req, res) => {
-  const posts = await Post.find({});
+  const posts = await Post.find({}).populate({
+    path: 'comments'
+  });
   res.render('posts/index', { posts, title: 'posts' });
+
 };
 
 module.exports.createPost = async (req, res) => {
